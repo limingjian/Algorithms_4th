@@ -1,3 +1,4 @@
+package cha_3_1;
 import edu.princeton.cs.algs4.SequentialSearchST;
 import edu.princeton.cs.algs4.StdIn;
 
