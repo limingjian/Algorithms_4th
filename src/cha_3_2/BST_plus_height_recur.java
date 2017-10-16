@@ -4,7 +4,7 @@ import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
-public class BST<Key extends Comparable<Key>, Value> {
+public class BST_plus_height_recur<Key extends Comparable<Key>, Value> {
 	private Node root;
 
 	private class Node {
@@ -223,6 +223,16 @@ public class BST<Key extends Comparable<Key>, Value> {
 		return queue;
 	}
 
+	public int height() {
+		return height(root);
+	}
+
+	private int height(Node x) {
+		if (x == null)
+			return -1;
+		return 1 + Math.max(height(x.left), height(x.right));
+	}
+
 	private void keys(Node x, Queue<Key> queue, Key lo, Key hi) {
 		if (x == null)
 			return;
@@ -237,7 +247,7 @@ public class BST<Key extends Comparable<Key>, Value> {
 	}
 
 	public static void main(String[] args) {
-		BST<String, Integer> st = new BST<String, Integer>();
+		BST_plus_height_recur<String, Integer> st = new BST_plus_height_recur<String, Integer>();
 		for (int i = 0; !StdIn.isEmpty(); i++) {
 			String key = StdIn.readString();
 			st.put(key, i);
@@ -245,5 +255,6 @@ public class BST<Key extends Comparable<Key>, Value> {
 		for (String s : st.keys()) {
 			StdOut.println(s + " " + st.get(s));
 		}
+		StdOut.println("The height of the BST is: " + st.height());
 	}
 }
