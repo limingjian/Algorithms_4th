@@ -64,7 +64,7 @@ public class BST_plus_height_field<Key extends Comparable<Key>, Value> {
 		else
 			x.val = val;
 		x.N = size(x.left) + size(x.right) + 1;
-		if (x.left!=null || x.right!=null) {
+		if (x.left==null || x.right==null) {
 			x.height+=1;
 		}
 		return x;
