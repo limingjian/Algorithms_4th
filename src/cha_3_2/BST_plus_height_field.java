@@ -18,7 +18,7 @@ public class BST_plus_height_field<Key extends Comparable<Key>, Value> {
 			this.key = key;
 			this.val = val;
 			this.N = N;
-			this.height= 0;  //the height of this sub-tree
+			this.height = -1; // the height of this sub-tree
 		}
 	}
 
@@ -64,9 +64,10 @@ public class BST_plus_height_field<Key extends Comparable<Key>, Value> {
 		else
 			x.val = val;
 		x.N = size(x.left) + size(x.right) + 1;
-		if (x.left==null || x.right==null) {
-			x.height+=1;
-		}
+		if (x.left == null || x.right == null)
+			x.height += 1;
+		else
+			x.height = Math.max(x.left.height, x.right.height) + 1;
 		return x;
 	}
 
