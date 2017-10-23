@@ -16,8 +16,8 @@ public class Concordance {
 			String s = words[i];
 			if (!st.contains(s)) {
 				st.put(s, new SET<Integer>());
-				st.get(s).add(i);
 			}
+			st.get(s).add(i);
 		}
 		while (!StdIn.isEmpty()) {
 			String query = StdIn.readString();
