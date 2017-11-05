@@ -15,7 +15,7 @@ public class RegexEmail {
 	public static void main(String[] args){
 		Scanner in=new Scanner(System.in);
 		while (in.hasNext()) {
-			String email=in.nextLine();
+			String email=in.next();
 			System.out.println(checkEmail(email));
 		}
 	}
